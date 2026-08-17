@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aug 18 ❤️</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+min-height:100vh;
+padding:25px 18px;
+font-family:Arial,sans-serif;
+background:linear-gradient(145deg,#fff1f7,#ffd8e7,#fff8fb);
+color:#64263f;
+overflow-x:hidden;
+}
+
+.container{
+width:100%;
+max-width:440px;
+margin:auto;
+text-align:center;
+}
+
+/* INTRO */
+
+.intro-screen{
+min-height:92vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+animation:fadeIn 1.2s ease;
+}
+
+.date{
+font-size:27px;
+font-weight:bold;
+letter-spacing:1px;
+margin-bottom:18px;
+}
+
+.intro-text{
+font-size:18px;
+line-height:1.7;
+min-height:90px;
+}
+
+.continue{
+margin-top:30px;
+padding:12px 23px;
+border:none;
+border-radius:30px;
+background:#e95783;
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 7px 18px #c83d681f;
+}
+
+.hidden{
+display:none;
+}
+
+/* GIFT */
+
+.gift-screen{
+text-align:center;
+animation:fadeIn 1s ease;
+}
+
+.gift-title{
+font-size:22px;
+font-weight:bold;
+margin-top:20px;
+}
+
+.gift-sub{
+font-size:16px;
+line-height:1.6;
+}
+
+.gift-area{
+height:270px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.gift{
+width:185px;
+height:155px;
+position:relative;
+cursor:pointer;
+transition:.8s;
+}
+
+.box{
+position:absolute;
+bottom:0;
+left:5px;
+width:175px;
+height:108px;
+background:#e95783;
+border-radius:9px;
+box-shadow:0 16px 28px #7b29451f;
+}
+
+.box:before{
+content:"";
+position:absolute;
+left:72px;
+width:31px;
+height:108px;
+background:#ffd4e2;
+}
+
+.lid{
+position:absolute;
+z-index:3;
+top:28px;
+left:0;
+width:185px;
+height:37px;
+background:#d83f6e;
+border-radius:8px;
+transition:.9s cubic-bezier(.2,.8,.2,1);
+}
+
+.lid:before{
+content:"";
+position:absolute;
+left:77px;
+width:31px;
+height:37px;
+background:#ffd4e2;
+}
+
+.bow{
+position:absolute;
+z-index:5;
+top:-12px;
+left:59px;
+font-size:50px;
+}
+
+.tag{
+position:absolute;
+z-index:6;
+bottom:31px;
+left:75px;
+width:35px;
+height:35px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.open .lid{
+transform:translateY(-100px) rotate(-8deg);
+}
+
+.open{
+transform:translateY(20px) scale(.96);
+}
+
+/* AFTER OPEN */
+
+.after{
+display:none;
+font-size:19px;
+font-weight:bold;
+line-height:1.5;
+margin:-15px 0 25px;
+}
+
+.show{
+display:block;
+animation:rise .9s ease;
+}
+
+/* MESSAGE */
+
+.message{
+display:none;
+background:#ffffffea;
+padding:22px;
+border-radius:23px;
+text-align:left;
+font-size:16px;
+line-height:1.58;
+box-shadow:0 12px 35px #64263f18;
+}
+
+.message p{
+margin:0 0 16px;
+}
+
+.message p:last-child{
+margin-bottom:0;
+}
+
+/* ONE YEAR */
+
+.milestone{
+display:none;
+margin-top:25px;
+padding:21px;
+border-radius:22px;
+background:#ffffffdf;
+box-shadow:0 10px 30px #64263f18;
+font-size:18px;
+line-height:1.6;
+}
+
+/* FINAL */
+
+.final{
+display:none;
+margin-top:22px;
+padding:22px;
+border-radius:22px;
+background:#ffffffea;
+box-shadow:0 10px 30px #64263f18;
+}
+
+.question{
+font-size:19px;
+font-weight:bold;
+line-height:1.5;
+}
+
+.final-button{
+margin-top:17px;
+padding:13px 22px;
+border:none;
+border-radius:30px;
+background:#e95783;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.answer{
+display:none;
+margin-top:18px;
+font-size:20px;
+font-weight:bold;
+line-height:1.6;
+}
+
+.reset{
+margin-top:20px;
+border:none;
+background:transparent;
+color:#a04467;
+font-size:14px;
+cursor:pointer;
+}
+
+/* FLOATING EMOJIS */
+
+.float{
+position:fixed;
+pointer-events:none;
+font-size:23px;
+animation:floatUp 2.8s linear forwards;
+z-index:100;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes rise{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes floatUp{
+from{
+opacity:1;
+transform:translateY(0) scale(.8) rotate(0deg);
+}
+to{
+opacity:0;
+transform:translateY(-260px) scale(1.35) rotate(20deg);
+}
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- INTRO SCREEN -->
+
+<div class="intro-screen" id="introScreen">
+
+<div class="date">
+AUG 18, 2026 🥹❤️
+</div>
+
+<div class="intro-text" id="typing"></div>
+
+<button class="continue" onclick="showGift()">
+There's something for youuu 🤭🎁
+</button>
+
+</div>
+
+
+
+<!-- GIFT SCREEN -->
+
+<div class="gift-screen hidden" id="giftScreen">
+
+<div class="gift-title">
+Yuggiiiii 🥹🤭❤️
+</div>
+
+<div class="gift-sub">
+I made a little something for youuu 🫶🏻
+<br>
+But you have to open it yourself 👀🎁
+</div>
+
+
+<div class="gift-area">
+
+<div class="gift" id="gift" onclick="openGift()">
+
+<div class="box"></div>
+
+<div class="lid"></div>
+
+<div class="bow">🎀</div>
+
+<div class="tag">❤️</div>
+
+</div>
+
+</div>
+
+
+<div class="after" id="after">
+
+And somehow… you became my favourite person. 🥹🫶🏻❤️
+
+</div>
+
+
+
+<!-- MESSAGE -->
+
+<div class="message" id="message">
+
+<p>
+Yuggiiiii 🥹🤭❤️ … and I’ve been thinking about that dayyy 😭🫶🏻
+</p>
+
+<p>
+Likeee I still can’t believe I randomly pointed at YOU without even properly knowing you 😭😭 I knew nothing about you, but somehow I just had that little feeling 🥹💗 And look where that random moment brought me nowww 🫠❤️
+</p>
+
+<p>
+The funniest part is I genuinely thought you’d NEVER fall for me 😭🤭 You were literally the “I’m not interested in love” guy with so many admirers 😭💀 and somehow YOU ended up falling for meee 🥹😘
+</p>
+
+<p>
+And the best part? Everyone got the cold/mean/“I don’t care” Yuggi… but I got the sweetest version of you 🥹❤️‍🩹💎 Your efforts, your love, the way you are with me… everything is just 🥹💎💎💎
+</p>
+
+<p>
+One random day, one random choice… and somehow I got YOU 🥹🫶🏻❤️
+</p>
+
+<p>
+I love youuuuu Yuggiiiii 🥰🤭😘❤️ And ngl… I’d point at you again 😭👉🏻❤️
+</p>
+
+</div>
+
+
+
+<!-- MILESTONE -->
+
+<div class="milestone" id="milestone">
+
+One year ago, you were just the boy I randomly pointed at. 🥹👉🏻❤️
+
+<br><br>
+
+And now you're the person I chose, and who chose me back. 🫶🏻💎❤️
+
+<br><br>
+
+<span style="font-size:24px;">
+365 days of youuu 🥹❤️‍🩹
+</span>
+
+</div>
+
+
+
+<!-- FINAL -->
+
+<div class="final" id="final">
+
+<div class="question">
+
+And if someone asked me again tomorrow… 🤭❤️
+
+<br><br>
+
+Who would you choose?
+
+</div>
+
+
+<button class="final-button" onclick="showAnswer()">
+
+👉🏻 Tap to answer
+
+</button>
+
+
+<div class="answer" id="answer">
+
+You. Obviously. 😭🤭❤️
+
+<br><br>
+
+I'd point at you all over again. 🥹🫶🏻👉🏻❤️
+
+</div>
+
+
+<button class="reset" onclick="location.reload()">
+
+↩️ Open again
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* INTRO TYPING */
+
+const text =
+"One year ago… I randomly pointed at you. 🤭👉🏻❤️\n\nI had absolutely no idea what was coming… 🫠🥹";
+
+let i=0;
+
+function typeText(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML =
+text.substring(0,i+1).replace(/\n/g,"<br>");
+
+i++;
+
+setTimeout(typeText,45);
+
+}
+
+}
+
+typeText();
+
+
+
+/* SHOW GIFT */
+
+function showGift(){
+
+document.getElementById("introScreen")
+.classList.add("hidden");
+
+document.getElementById("giftScreen")
+.classList.remove("hidden");
+
+}
+
+
+
+/* OPEN GIFT */
+
+function openGift(){
+
+const gift=document.getElementById("gift");
+
+if(gift.classList.contains("open")) return;
+
+gift.classList.add("open");
+
+createHearts();
+
+setTimeout(function(){
+
+document.getElementById("after")
+.classList.add("show");
+
+},800);
+
+
+setTimeout(function(){
+
+document.getElementById("message")
+.classList.add("show");
+
+},1800);
+
+
+setTimeout(function(){
+
+document.getElementById("milestone")
+.classList.add("show");
+
+},4300);
+
+
+setTimeout(function(){
+
+document.getElementById("final")
+.classList.add("show");
+
+},5500);
+
+}
+
+
+
+/* FINAL ANSWER */
+
+function showAnswer(){
+
+document.getElementById("answer")
+.classList.add("show");
+
+createHearts();
+
+}
+
+
+
+/* FLOATING EMOJIS */
+
+function createHearts(){
+
+const emojis=[
+"❤️",
+"💗",
+"🥹",
+"🤭",
+"💎",
+"🫶🏻",
+"😘",
+"❤️‍🩹"
+];
+
+for(let i=0;i<30;i++){
+
+setTimeout(function(){
+
+const item=document.createElement("div");
+
+item.className="float";
+
+item.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+item.style.left=
+(5+Math.random()*90)+"vw";
+
+item.style.top=
+(55+Math.random()*30)+"vh";
+
+document.body.appendChild(item);
+
+setTimeout(function(){
+
+item.remove();
+
+},2800);
+
+},i*65);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
